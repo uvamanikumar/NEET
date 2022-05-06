@@ -21,9 +21,15 @@ public class homepage extends base {
       landingpageele.entermobno("9962375973");
       landingpageele.enterpassword("abc123");
       landingpageele.clicklogin();
-        Thread.sleep(20000);
+        Thread.sleep(10000);
+      try{
+          landingpageele.clicksessok();
+      }catch (Exception e){
+          System.out.println("element not found");
+      }
+      Thread.sleep(10000);
       Assert.assertEquals(driver.getCurrentUrl(),"https://neet.m-tutor.com/home.php");
-      Thread.sleep(20000);
+      Thread.sleep(10000);
   }
   @Test
     public void checkinvalidlogin() throws InterruptedException {
@@ -33,6 +39,7 @@ public class homepage extends base {
       landingpageele.clicklogin();
       Assert.assertEquals(landingpageele.getmobfielderr(),"Mobile Number looks incorrect");
   }
+
     @AfterMethod
     public void tearDown(){
         driver.close();
