@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class Landingpageele extends Base {
     @FindBy(xpath = "//*[@id=\"rd-navbar-aside\"]/ul/li[2]/a")
     WebElement loginnav;
-    @FindBy(xpath = "//*[@id=\"signin-mobile_no\"]")
+    @FindBy(xpath ="//*[@id=\"signin-mobile_no\"]")
     WebElement loginmobinput;
     @FindBy(xpath = "//*[@id=\"signin-password\"]")
     WebElement loginpasswordinput;
@@ -18,7 +18,7 @@ public class Landingpageele extends Base {
     WebElement moberr;
     @FindBy(xpath = "//*[@id=\"login-form\"]/small")
     WebElement pwderr;
-    @FindBy(xpath = "//html/body/div[4]/div[7]/div/button")
+    @FindBy(xpath = "//button[@class=\"confirm\"]")
     WebElement sesspopupok;
 
 
@@ -36,7 +36,7 @@ public class Landingpageele extends Base {
     }
 
     public void enterpassword(String pwd) {
-        loginpasswordinput.sendKeys("abc123");
+        loginpasswordinput.sendKeys(pwd);
     }
 
     public void clicklogin() {

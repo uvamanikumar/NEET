@@ -46,6 +46,11 @@ public Homepagetest(){
     Assert.assertTrue(homepage.getsettingtitle().contains("Change Your Pasword"));
   //  Assert.assertEquals("");
 }
+@Test
+public void checkhome() throws InterruptedException{
+    utility.validlogin();
+    //Assert.assertEquals(homepage.getlogout(),"Logout");
+}
 @AfterMethod
 public void tearDown(){
     driver.close();

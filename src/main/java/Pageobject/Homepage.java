@@ -1,5 +1,6 @@
 package Pageobject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -8,6 +9,8 @@ public class Homepage extends Base {
     public Homepage(){
         PageFactory.initElements(Base.driver,this);
     }
+    @FindBy(xpath = "//a[text()=' Logout ']")
+    private static WebElement logoutbtn;
     @FindBy(xpath = "/html/body/div[2]/header/div[1]/nav/div/div[1]/div[1]/button/span")
     private WebElement Menubtn;
     @FindBy(xpath = "/html/body/div[2]/header/div[1]/nav/div/div[2]/ul/li[4]/a")
@@ -22,7 +25,14 @@ public class Homepage extends Base {
     private WebElement expertsondutybtn;
     @FindBy(xpath = "//*[@id=\"questionpanel\"]/h2")
     private WebElement expertsondutytitle;
+    public WebElement selectsubject(String subject){
+        WebElement w=driver.findElement(By.xpath("//h3[@class=\"tour-minimal-title font-weight-sbold\" and text()=' "+subject+" ']"));
+        return w;
+    }
 
+    public static String getlogout(){
+        return logoutbtn.getText();
+    }
     public void clickmenu() {
         Menubtn.click();
     }
@@ -34,9 +44,10 @@ public class Homepage extends Base {
     public String getsettingtitle() {
         return settingtitle.getText();
     }
-    public void clickgoogleplay(){
+    public void clickgoogleplay() {
         googleplaybtn.click();
     }
+
     public void clickappstore(){
         appstorebtn.click();
     }
